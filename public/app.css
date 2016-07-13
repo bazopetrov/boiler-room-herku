@@ -1,0 +1,242 @@
+/* app css stylesheet */
+
+@font-face {
+    font-family: vhs-font;
+    src: url('fonts/VCR_Font_Cyrillic.ttf');
+    font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.container-fluid{
+  padding: 0px !important;
+}
+
+
+
+.rotate-180 {
+
+/* Safari */
+-webkit-transform: rotate(-180deg);
+
+/* Firefox */
+-moz-transform: rotate(-180deg);
+
+/* IE */
+-ms-transform: rotate(-180deg);
+
+/* Opera */
+-o-transform: rotate(-180deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+
+}
+
+.fontsize-10{
+  font-size: 10px;
+  text-decoration: none;
+  color: #ffffff !important;
+}
+.wight-70p-center{
+      width: 70%;
+      margin-left: 15%;
+}
+
+.padding-top-10p{
+  padding-top: 10%;
+}
+.text-align-center{
+  text-align: center;
+}
+
+.hero-img {
+    min-height: 620px;
+    background-image: url('img/BRCloudsBG3.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: vhs-font;
+    
+  }
+
+.wrapper {
+    width:200%;
+    overflow:hidden;
+    position:relative;
+    left:0;
+    overflow-x: hidden;
+  }
+
+  .wrapper-row-white{
+    padding: 20px;
+    text-align: center;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    left:0;
+    overflow-x: hidden;
+    background-color: #F5F5F5 !important;
+    
+  }
+  .wrapper-row-normal{
+    padding: 20px;
+    text-align: center;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    left:0;
+    overflow-x: hidden;
+    background-color: #EBEBEB;
+    
+  }
+#div1 {
+      width:50%;
+      float:left;
+  }
+#div2 {
+      width:50%;
+      float:left;
+  }
+
+  .nav{
+    padding: 10px;
+    height: 60px;
+    text-align: center;
+  }
+  body{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    background-color: #F5F5F5 !important;
+  }
+
+  footer{
+    margin-top: 50px;
+    height: 300px;
+    background-color: #EBEBEB;
+    
+    
+  }
+
+  .logo-img {
+    height: 40px;
+       
+  }
+
+  .footer-logo-img {
+    height: 132px;
+    margin-top: 70px;
+    opacity: 0.2;       
+  }
+
+  .display_inline_block{
+    display: inline-block !important;
+  }
+
+  .vote_for_img{
+    height: 200px;
+    width: 200px;
+    float: right;
+  }
+
+  .vote_for_img_sec{
+    height: 100px;
+    width: 100px;
+    float: right;
+  }
+
+  .text_colum_vote_sec{
+    text-align: left;
+    height: 100px;
+    min-width: 200px;
+    display: table-cell !important;
+    vertical-align: middle;
+    padding-left: 20px;
+  }
+
+
+  .text_colum_vote{
+    text-align: left;
+    height: 200px;
+    padding-left: 20px;
+    display: table-cell !important;
+    vertical-align: middle;
+    
+  }
+
+  .text_colum_vote h2{
+      font-size: 15px !important;
+  }
+
+  .text_colum_vote h3{
+      font-size: 15px !important;
+      text-transform: uppercase;
+      color: darkgray;
+  }
+
+  .text_colum_vote_sec h2{
+      font-size: 12px !important;
+  }
+
+  .text_colum_vote_sec h3{
+      font-size: 12px !important;
+      text-transform: uppercase;
+      color: darkgray;
+  }
+
+
+
+  .hart{
+    color: darkgray;
+  }
+
+  .hart:hover .fa-heart-o:before {
+    content: "\f004";
+    color: darkgray;
+  }
+
+  .nav-tabs {
+    border-bottom: none !important;
+
+  }
+  .nav-tabs li a{
+    color: darkgray;
+  }
+
+
+
+
+

@@ -78,7 +78,7 @@ angular.module('myApp.controllers.home', [])
 
         SC.initialize({
             client_id: '731611aaeaf4b8b2ed55406ee818ee61',
-            redirect_uri: 'http://localhost:8000/app/templates/callback.html'
+            redirect_uri: 'http://boiler-room-staging.herokuapp.com/callback.html'
         });
 
         

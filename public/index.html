@@ -20,6 +20,9 @@
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
 
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="http://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+
+
 </head>
 <body>
     <div class="nav">
@@ -34,14 +37,16 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
 
     <!-- Bootstrap Angular -->
     <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="bower_components/angular-marquee/src/marquee.js"></script>
 
     <!-- Firebase -->
-    <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+    
 
     <!-- App -->
     <script src="app.js"></script>
@@ -52,8 +57,12 @@
     <!-- Directives -->
     <script src="directives/myDirective.js"></script>
 
+    <!-- Services -->
+    <script src="services/soundcloud.service.js"></script>
+
     <!-- Controllers -->
     <script src="controllers/home.js"></script>
+    <script src="controllers/player.js"></script>
 
 </body>
 <footer style="text-align: center;">

@@ -4,9 +4,13 @@
 angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
+    'smart-table',
+    'firebase',
     'ui.bootstrap',
     'myApp.lib.services',
     'myApp.directives.myDirective',
+    'myApp.services.soundcloud',
+    'myApp.controllers.player',
     'myApp.controllers.home', 'angular-marquee'
 ])
 
@@ -16,6 +20,18 @@ angular.module('myApp', [
         title: 'Home',
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl'
+    });
+
+    $routeProvider.when('/callback', {
+        title: 'callback',
+        templateUrl: 'templates/callback.html',
+        controller: 'HomeCtrl'
+    });
+
+    $routeProvider.when('/player/:key', {
+        title: 'Home',
+        templateUrl: 'templates/player.html',
+        controller: 'PlayerCtrl'
     });
 
     $routeProvider.otherwise({

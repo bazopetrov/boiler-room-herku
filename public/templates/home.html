@@ -27,8 +27,127 @@
 		    </div>
 
 
-		    <div id="div2" class="hero-img">
-		        <input type="button" id="btn2" value="btn2" ng-click="animateRight()"/>
+		    <div id="div2" class="soundcloud_wraper">
+		    	<div class="row">
+		    		<div class="col-md-12">
+		    			<i class="fa fa-times close-btn" aria-hidden="true" ng-click="animateRight()"></i>
+		    		</div>
+		    		
+		    	</div>
+		    	<div class="row step-row">
+		    		<div id="step1" class="step step-blue border-right-start " >
+						Войти в Soundcloud
+					</div>
+					<div id="step2" class="step border-left-dashed">
+						Выбрать свой трек
+					</div>
+					<div id="step3" class="step border-left-dashed" >
+						Написать описание
+					</div>
+					<div id="step4" class="step border-left-dashed-end" >
+						Поделиться своим треком
+					</div>
+		    	</div>
+		    	<div class="row content-row" ng-show="step1">
+		    		<div style="width: 60%;">
+		    			<h4>Шаг 1:</h4>	
+		    			<label style="font-weight: normal;">
+		    				Залогиньтесь в Soundcloud, чтобы мы могли получить доступ к информации о твоем треке. Нет, мы не будем продавать ваши данные. Мы просто хотим подгрузить трек.
+		    			</label>	    		
+		    		
+		    		<img style="margin-top: 40px;" src="img/btn-connect-sc-l.png" ng-click="loginToSoundCloud();" />
+		    		
+		    		<br>
+		    		<label class="terms-label">правила и условия</label>
+		    		</div>
+		    		
+		    		
+		    	</div>
+		    	<div class="row content-row" ng-show="step2">
+		    		<div style="width: 70%;">
+		    			<h4>Шаг 2:</h4>
+		    			<label style="font-weight: normal;">
+		    				Выбери свой трек.
+		    			</label>
+		    			<div style="max-height: 320px; overflow-y: auto; background-color: #f9f9f9 !important; padding-bottom: 30px;">
+		    				<div ng-repeat="track in artistTracks track by $index" ng-click="selectedTrack(track)" class="col-md-6" style="min-width: 300px !important; margin-top:40px;">
+					
+									<table style="width: 350px !important;">
+										<tr>
+											<td>
+												<img class="vote_for_img_sec" src="{{track.artwork_url}}"/>
+											</td>
+											<td>
+												<table class="text_colum_vote_sec">
+													<tr>
+														<td>
+															<h2>{{loginUserSoundCloud.username}}</h2>
+										        			<h3>{{track.title}}</h3>
+										        			
+														</td>
+														
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+						       
+							</div>
+							
+		    			</div>
+		    			
+		    			<button ng-disabled="step2SubmitBtn" id="step2-submit-btn" class="borrder-blue-button disabled" ng-click="submitYourTrack()">Загрузите свой трек</button>
+		    		
+		    		
+		    		</div>
+		    		
+		    		
+		    	</div>
+		    	<div class="row content-row" ng-show="step3">
+		    		<div style="width: 60%;">
+		    			<h4>Шаг 3:</h4>
+		    			<label style="font-weight: normal; width: 80%;">
+		    				Напишите сопроводительное описание к своему треку. Возможно, вам захочется добавить ссылки на ваш сайт, Instagram или текстовый комментарий. Или, если хотите, можете <a href="" ng-click="saveTrackOnServer()">пропустить этот шаг</a> 
+		    			</label>
+		    			<div style="width: 50%; margin-left: 25%;">
+			    			<textarea rows="10" cols="40" ng-model="descrptionText" type="text" maxlength="140"/>
+			    			<button class="borrder-blue-button" ng-click="saveTrackOnServer()">Загрузите свой трек</button>
+		    			</div>
+            
+		    					    		
+		    		</div>
+		    		
+		    		
+		    	</div>
+		    	<div class="row content-row" ng-show="step4">
+		    		<div style="width: 60%;">
+		    			<h4>Поздравляем</h4>
+		    			<label style="font-weight: normal; width: 80%;">
+			    			Ваш трек принят для участия в конкурсе Future Shift. Теперь вам стоит расшерить свой трек, чтобы получить больше голосов!
+			    		</label>
+		    			<div style="width: 50%; margin-left: 25%;">
+			    			
+			    			<button class="borrder-blue-button button-width100" ng-click="shareOnVK()">
+			    				Поделиться в VK
+			    				<i class="fa fa-vk margin-left10" aria-hidden="true"></i>
+			    			</button>
+			    			<button class="borrder-blue-button button-width100" ng-click="shareOnTwitter()">
+			    				Поделиться в Twitter 
+			    				<i class="fa fa-twitter-square margin-left10" aria-hidden="true"></i>
+			    			</button>
+			    			<button class="borrder-blue-button button-width100" ng-click="shareOnFB()">Поделиться в Facebook
+			    				<i class="fa fa-facebook-official margin-left10" aria-hidden="true"></i></button>
+			    			<button disabled class="borrder-blue-button button-width100 disabled" ng-click="saveTrackOnServer()">Короткий URL:http://bit.ly/1y2cdf</button>
+			    			<button style="margin-top: 40px;" class="borrder-blue-button button-width100" ng-click="goToTrackPage()">Открой страницу со своим треком!</button>
+		    			</div>
+		    			
+		    		
+		    		
+		    		</div>
+		    		
+		    		
+		    	</div>
 		    </div>
 		</div>
     	
@@ -69,6 +188,7 @@
 
 
         <div id="trackList" class="wrapper-row-white">
+        	
         	<ul class="nav nav-tabs display_inline_block">
 			  <li><a href="">Лучшие</a></li>
 			  <li><a href="">Горячие</a></li>

@@ -5,10 +5,12 @@ angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
     'smart-table',
+    'myApp.services.firebaseservice',
     'firebase',
     'ui.bootstrap',
     'myApp.lib.services',
     'myApp.directives.myDirective',
+    'ngSoundcloud',
     'myApp.services.soundcloud',
     'myApp.controllers.player',
     'myApp.controllers.home', 'angular-marquee'

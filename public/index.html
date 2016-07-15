@@ -26,9 +26,11 @@
 </head>
 <body>
     <div class="nav">
+        
+        
         <img class="logo-img" src="img/logo_blue.png"/>
     </div>
-        <div ng-view>
+        <div ng-view autoscroll="true">
         </div>
     
     
@@ -44,9 +46,12 @@
     <script src="bower_components/angular-marquee/src/marquee.js"></script>
 
     <!-- Firebase -->
-    <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+ <!--   <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
-    
+  -->  
 
     <!-- App -->
     <script src="app.js"></script>
@@ -57,8 +62,11 @@
     <!-- Directives -->
     <script src="directives/myDirective.js"></script>
 
+    <script src="directives/ng-soundcloud.js"></script>
+
     <!-- Services -->
     <script src="services/soundcloud.service.js"></script>
+    <script src="services/firebase.service.js"></script>
 
     <!-- Controllers -->
     <script src="controllers/home.js"></script>

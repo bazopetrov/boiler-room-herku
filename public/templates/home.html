@@ -159,7 +159,8 @@
         				<table style="width: 500px !important; display: inline-block;">
 							<tr>
 								<td>
-									<img class="vote_for_img" src="img/vote_for_img.png"/>
+									<img class="vote_for_img" src="{{track.artwork_url}}"/>
+
 								</td>
 								<td>
 									<table class="text_colum_vote">
@@ -197,27 +198,28 @@
 
 			<div div class="col-md-12">
 				<div class="row" style="padding-left: 20%;">
-				<div class="col-md-6" style="min-width: 300px !important; margin-top:40px;">
+				<div ng-repeat="trackItem in tracks track by $index" class="col-md-6" style="min-width: 300px !important; margin-top:40px;">
 					
 						<table style="width: 350px !important;">
 							<tr>
 								<td>
-									<img class="vote_for_img_sec" src="img/vote_for_img.png"/>
+									<img class="vote_for_img_sec" ng-click="playTrack(trackItem)" src="{{trackItem.artwork_url}}"/>
+									<i class="fa fa-play vote_for_img_sec_play" ng-click="playTrack(trackItem)" aria-hidden="true"></i>
 								</td>
 								<td>
 									<table class="text_colum_vote_sec">
 										<tr>
 											<td>
-												<h2>Name Of Artist</h2>
-							        			<h3>Name of song</h3>
+												<h2>{{trackItem.artist}}</h2>
+							        			<h3>{{trackItem.title}}</h3>
 							        			<div style="display: inline-block; font-size:12px;">
-							        				<i class="fa fa-heart" aria-hidden="true"> 67</i> 
-							        				<i class="fa fa-play" style="margin-left: 20px;" aria-hidden="true"> 245 </i>
+							        				<i class="fa fa-heart" aria-hidden="true"> {{trackItem.votes}}</i> 
+							        				<i class="fa fa-play" style="margin-left: 20px;" aria-hidden="true"> {{trackItem.played}} </i>
 							        			</div>
 											</td>
 											<td style="padding-left: 20px;">
 												<a href"" class="hart">
-						        				<i class="fa fa-heart-o" style="font-size:30px;" aria-hidden="true"></i>
+						        				<i class="fa fa-heart-o" style="font-size:30px;" aria-hidden="true" ng-click="voteForTrack(trackItem)"></i>
 						        			</a>
 											</td>
 										</tr>
@@ -228,100 +230,7 @@
 						</table>
 			       
 				</div>
-				<div class="col-md-6" style="min-width: 300px !important; margin-top:40px;">
-					
-						<table style="width: 350px !important;">
-							<tr>
-								<td>
-									<img class="vote_for_img_sec" src="img/vote_for_img.png"/>
-								</td>
-								<td>
-									<table class="text_colum_vote_sec">
-										<tr>
-											<td>
-												<h2>Name Of Artist</h2>
-							        			<h3>Name of song</h3>
-							        			<div style="display: inline-block; font-size:12px;">
-							        				<i class="fa fa-heart" aria-hidden="true"> 67</i> 
-							        				<i class="fa fa-play" style="margin-left: 20px;" aria-hidden="true"> 245 </i>
-							        			</div>
-											</td>
-											<td style="padding-left: 20px;">
-												<a href"" class="hart">
-						        				<i class="fa fa-heart-o" style="font-size:30px;" aria-hidden="true"></i>
-						        			</a>
-											</td>
-										</tr>
-									</table>
-									
-								</td>
-							</tr>
-						</table>
-			       
-				</div>
-			
-				<div class="col-md-6" style="min-width: 300px !important; margin-top:40px;">
-					
-						<table style="width: 350px !important;">
-							<tr>
-								<td>
-									<img class="vote_for_img_sec" src="img/vote_for_img.png"/>
-								</td>
-								<td>
-									<table class="text_colum_vote_sec">
-										<tr>
-											<td>
-												<h2>Name Of Artist</h2>
-							        			<h3>Name of song</h3>
-							        			<div style="display: inline-block; font-size:12px;">
-							        				<i class="fa fa-heart" aria-hidden="true"> 67</i> 
-							        				<i class="fa fa-play" style="margin-left: 20px;" aria-hidden="true"> 245 </i>
-							        			</div>
-											</td>
-											<td style="padding-left: 20px;">
-												<a href"" class="hart">
-						        				<i class="fa fa-heart-o" style="font-size:30px;" aria-hidden="true"></i>
-						        			</a>
-											</td>
-										</tr>
-									</table>
-									
-								</td>
-							</tr>
-						</table>
-			       
-				</div>
-				<div class="col-md-6" style="min-width: 300px !important; margin-top:40px;">
-					
-						<table style="width: 350px !important;">
-							<tr>
-								<td>
-									<img class="vote_for_img_sec" src="img/vote_for_img.png"/>
-								</td>
-								<td>
-									<table class="text_colum_vote_sec">
-										<tr>
-											<td>
-												<h2>Name Of Artist</h2>
-							        			<h3>Name of song</h3>
-							        			<div style="display: inline-block; font-size:12px;">
-							        				<i class="fa fa-heart" aria-hidden="true"> 67</i> 
-							        				<i class="fa fa-play" style="margin-left: 20px;" aria-hidden="true"> 245 </i>
-							        			</div>
-											</td>
-											<td style="padding-left: 20px;">
-												<a href"" class="hart">
-						        				<i class="fa fa-heart-o" style="font-size:30px;" aria-hidden="true"></i>
-						        			</a>
-											</td>
-										</tr>
-									</table>
-									
-								</td>
-							</tr>
-						</table>
-			       
-				</div>
+				
 			</div>
 			
         </div>

@@ -4,8 +4,9 @@ angular.module('myApp.controllers.home', [])
 
 
 // Home controller
-.controller('HomeCtrl', function($scope, $rootScope, $firebase, SoundcloudService) {
+.controller('HomeCtrl', function($scope, $rootScope, SoundcloudService, FirebaseService) {
 
+    $rootScope.showBack = false;
 
     $scope.tracks = [];
 
@@ -14,30 +15,44 @@ angular.module('myApp.controllers.home', [])
     loadTracks();
 
     function loadTracks(){
-        var ref = new Firebase("https://boiler-app.firebaseio.com/tracks");
-        var fb = $firebase(ref);  
-        var syncObject = fb.$asArray();
-        
+        //var ref = new Firebase("https://boiler-app.firebaseio.com/tracks");
+        $scope.tracks = FirebaseService.all();   
 
-        console.log(syncObject.lenght)
     }
 
 
     $scope.saveTrackOnFireBase = function() { 
-        var ref = new Firebase("https://boiler-app.firebaseio.com/tracks/"+$scope.selectedTrack.id);  
-        var fb = $firebase(ref);   
-
-        fb.$set({
-          
+        FirebaseService.save($scope.selectedTrack, $scope.descrptionText);
+       /*$scope.tracks.$add({
             title: $scope.selectedTrack.title,
+            artist: $scope.selectedTrack.user.username,
+            upload_time: Date.now(), 
             votes: 0,
             played: 0,
             descrption: $scope.descrptionText,
-            trackSoundCloudId: $scope.selectedTrack.id
-          
-        });    
+            trackSoundCloudId: $scope.selectedTrack.id,
+            artwork_url: $scope.selectedTrack.artwork_url
+        });*/
+        
 
     };
+
+
+    $scope.voteForTrack = function(track){
+        FirebaseService.updateVote(track);
+        /*track.votes = track.votes + 1;
+        var index = $scope.tracks.$indexFor(track.$id);
+        $scope.tracks.$save(index);*/
+    }
+
+    $scope.playTrack = function(track){
+        FirebaseService.updatePlayed(track);
+        /*track.played = track.played + 1;
+        var index = $scope.tracks.$indexFor(track.$id);
+        $scope.tracks.$save(index);*/
+        window.location = "#/player/"+track.$id;
+       
+     }
 
      $scope.loginUserSoundCloud;
      $scope.descrptionText = '';
@@ -50,10 +65,7 @@ angular.module('myApp.controllers.home', [])
      $scope.step3= false;
      $scope.step4= false;
 
-     $scope.playTrack = function(track){
-        window.location = "#/player/"+track;
-       
-     }
+     
 
 
 
@@ -78,7 +90,7 @@ angular.module('myApp.controllers.home', [])
 
         SC.initialize({
             client_id: '731611aaeaf4b8b2ed55406ee818ee61',
-            redirect_uri: 'http://boiler-room-staging.herokuapp.com/templates/callback.html'
+            redirect_uri: 'http://localhost:8000/app/templates/callback.html'
         });
 
         

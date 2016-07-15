@@ -1,35 +1,74 @@
 <body>
+
+	<div ng-if="showBack" class="back-to-tracks">
+            <a class="fa fa-arrow-left" aria-hidden="true" href="" ng-click="stopPlay()">Назад к трекам</a>
+        </div>
 	
     <div class="container-fluid">
     	<div class="wrapper">
 		    <div id="div1" class="hero-img">
-		        
-		        <div angular-marquee scroll="scroll" duration="duration"> Мы ищем новых битмейкеров из России > </div>
-				
-				<div class="row col-md-12 padding-top-10p text-align-center">
-					<div class="wight-70p-center">
-						Загрузи свой трек с Soundcloud на сайт Future Shift и получи шанс выпустить свою музыку на эксклюзивном диджитал-EP на Boiler Room
-						<br>
-						<input style="margin-top: 50px; color: blue; padding: 10px;" type="button" id="btn1" value="Закгрузи свой трек" ng-click="animateLeft()"/>
-						<br>
-						<a class="fontsize-10" href="">Правила и условия</a>
-					</div>
-				</div>	    
+		    	<div class="row col-md-12">
+		    		<div class="row padding-left-right-50" style="margin-top: 30px;">
+		    			<div style="float:left"> {{band}} </div>
+		    			<div style="float:right"> AUTO PLAY <a href="" class="a-with selected" ng-click="autoPlayOn()">ON</a> /  <a class="a-with" ng-click="autoPlayOff()" href-"">OFF</a></div>
+		        	</div>
+		        	<div class="row padding-left-right-50">
+		        		<div style="float:left"> {{title}} </div>
+		        	</div>
+		    	</div>
+		        <div class="row col-md-12">
+		        	<div class="row padding-left-right-50" style="margin-top: 130px;">
+		    			<div style="float:left" ><a ng-click="loadPrevTrack()" href="" class="a-with" > < Предыдущий </a></div>
+		    			
+		    			<div style="float:right" ><a ng-click="loadNextTrack()" href="" class="a-with" > Следующий > </a></div>
+		    		</div>
+		        </div>
 
-				<div class="row col-md-12 text-align-center" style="margin-top: 100px;">
-					Зацени треки
-					<br>
-					<label class="rotate-180">^</label>
+		        <div class="row col-md-12">
+		        	<div class="row padding-left-right-50 text-align-center" >
+		        		<div >
+		    				<a href"" class="hart-player">
+		    				<i class="fa fa-heart-o" style="font-size:100px; color:#fff" aria-hidden="true" ng-click="voteForTrack(track)">
+		    				</i></a>
+		    			</div>
+		        	</div>
+		        </div>
+			
+
+				<div class="row col-md-12" style="margin-top: 200px;">
+					<div class="row padding-left-right-50 text-align-center">
+		        		<div style="float:left; margin-right:30px"> Голосов: {{track.votes}} </div>
+		        		<div style="float:left"> > {{track.played}} </div>
+		        	</div>
+					<div class="row padding-left-right-50">
+						{{track.descrption}}
+					</div>					
+					
 				</div>
 		    </div>		    
 		</div>
     	
-        <div class="wrapper-row-white">
-        	Треки, за которые проголосовали {{timeback}} минут назад
+        
+
+        <div class="ng-sc-track">
+        	<div class="details" style="position: absolute; bottom: 0;">
+				<a id="playBtnId" class="fa fa-play play" ng-click="play()" ng-class="{'ion-ios7-play': !playing, 'ion-ios7-pause': playing}"></a>
+				<div class="track-info">
+					<a ng-href="{{trackUrl}}"><h1>{{title}}</h1></a>
+					<a ng-href="{{bandUrl}}"><p>{{band}}</p></a>
+				</div>
+				
+			</div>
+			<div class="wave" ng-style="{'background-image': 'url('+wave+')'}"></div>
         </div>
 
-       
+        <!--<div ng-app="ngSoundcloud">
+				<ng-sc-track track="trackKey">
+		</div>-->
+
+
         
     </div>
 </body>
+
 
